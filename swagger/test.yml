@@ -1,0 +1,30 @@
+openapi: 3.0.1
+info:
+  title: TODO - REPLACE ME WITH APP TITLE
+  description: TODO - REPLACE ME WITH APP DESCRIPTION
+  version: 1.0.5
+paths:
+  /v1/time:
+    get:
+      operationId: getTime
+      parameters: []
+      responses:
+        "200":
+          description: getTime 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeResponse'
+components:
+  schemas:
+    TimeResponse:
+      required:
+      - iso
+      type: object
+      properties:
+        iso:
+          type: string
+          format: date-time
+        epoch:
+          type: integer
+          format: int64
