@@ -8,7 +8,9 @@
     <body>
         <div id="swagger-ui"></div> <!-- Div to hold the UI component -->
         <script>
-        	var fileName = window.location.search;
+        	var searchString = window.location.search;
+        	//strip out '?' character
+        	var fileName = searchString.substring(1);
             window.onload = function () {
                 // Begin Swagger UI call region
                 const ui = SwaggerUIBundle({
