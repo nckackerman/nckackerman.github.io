@@ -11,7 +11,7 @@ on:
 
 jobs:
   scan:
-    runs-on: [ self-hosted, legacy ]
+    runs-on: ubuntu-latest
     steps:
       - name: build
         run: |

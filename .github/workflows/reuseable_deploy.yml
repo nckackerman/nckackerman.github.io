@@ -25,7 +25,7 @@ on:
 
 jobs:
   dummy_deploy:
-    runs-on: [ self-hosted, legacy ]
+    runs-on: ubuntu-latest
     steps:
       - name: get repo name
         run: |
