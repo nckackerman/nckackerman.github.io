@@ -16,7 +16,7 @@ jobs:
 
   # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
   call-local-workflow:
-    uses: NYDIG/devtools-micronaut-api/.github/workflows/reuseable_security.yml@master
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
     with:
       env: DEV-TEST
       tag: TAG-TEST
