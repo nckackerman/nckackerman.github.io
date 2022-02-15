@@ -1,0 +1,25 @@
+name: "Reusable/Security"
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      image:
+        required: true
+        description: image hash to security scan
+        type: string
+
+jobs:
+  scan:
+    runs-on: [ self-hosted, legacy ]
+    steps:
+      - name: build
+        run: |
+          echo "This is where we would run security scans"
+
+  # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
+  call-local-workflow:
+    uses: NYDIG/devtools-micronaut-api/.github/workflows/reuseable_deploy.yml@master
+    with:
+      env: DEV-TEST
+      tag: TAG-TEST

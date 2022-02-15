@@ -1,0 +1,32 @@
+name: "Reusable/Deploy"
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: env to deploy
+        required: true
+        options:
+          - dev
+          - qa
+          - uat
+          - prod
+  workflow_call:
+    inputs:
+      env:
+        required: true
+        description: env - qa/uat/prod etc
+        type: string
+      tag:
+        required: false
+        description: tag - test description
+        type: string
+
+jobs:
+  dummy_deploy:
+    runs-on: [ self-hosted, legacy ]
+    steps:
+      - name: get repo name
+        run: |
+          echo "passed in env - ${{inputs.env}} \n and passed in tag - ${{inputs.tag}}"

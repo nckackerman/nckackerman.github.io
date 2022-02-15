@@ -1,0 +1,21 @@
+name: "Reusable/Build"
+on:
+  pull_request:
+  pull_request_target:
+
+# Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
+jobs:
+
+  build:
+    runs-on: [ self-hosted, legacy ]
+    steps:
+      - name: build
+        run: |
+          echo "This is where we would build code"
+
+  # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
+  call-local-workflow:
+    uses: NYDIG/devtools-micronaut-api/.github/workflows/reuseable_security.yml@master
+    with:
+      env: DEV-TEST
+      tag: TAG-TEST
