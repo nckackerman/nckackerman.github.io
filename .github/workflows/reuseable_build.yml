@@ -2,6 +2,7 @@ name: "Reusable/Build"
 on:
   pull_request:
   pull_request_target:
+  push:
 
 # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
 jobs:
