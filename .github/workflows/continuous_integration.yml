@@ -1,18 +1,16 @@
-name: "Reusable/Build"
+name: "CI"
 on:
   pull_request:
-  pull_request_target:
   push:
 
 # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
 jobs:
 
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: build
-        run: |
-          echo "This is where we would build code"
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
+    with:
+      env: DEV-TEST
+      tag: TAG-TEST
   # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
   call-local-workflow:
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
