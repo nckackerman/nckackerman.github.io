@@ -5,40 +5,18 @@ on:
 
 # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
 jobs:
-
   build:
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_build.yml@master
     with:
       commit-hash: hash
+  security:
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
+    with:
+      image: test
   # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
-  call-local-workflow:
+  deploy:
+    needs: security
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
     with:
       env: DEV-TEST
       tag: TAG-TEST
-
-
-#name: "CI"
-#on:
-#  pull_request:
-#  push:
-#
-## Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
-#jobs:
-#  build:
-#    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
-#    with:
-#      env: DEV-TEST
-#      tag: TAG-TEST
-#
-#  security:
-#    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
-#    with:
-#      image: test
-#
-#  create_release:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: build
-#        run: |
-#          echo "This is where we would build code"
