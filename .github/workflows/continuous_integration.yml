@@ -15,8 +15,7 @@ jobs:
   security:
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
     with:
-      env: DEV-TEST
-      tag: TAG-TEST
+      image: test
 
   create_release:
     runs-on: ubuntu-latest
