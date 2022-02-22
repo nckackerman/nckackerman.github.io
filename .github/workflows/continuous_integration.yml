@@ -7,10 +7,9 @@ on:
 jobs:
 
   build:
-    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_build.yml@master
     with:
-      env: DEV-TEST
-      tag: TAG-TEST
+      commit-hash: hash
   # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
   call-local-workflow:
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
