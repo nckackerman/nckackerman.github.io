@@ -1,10 +1,20 @@
 name: "Reusable/Build"
 on:
-  pull_request:
-  pull_request_target:
-  push:
+  workflow_dispatch:
+    inputs:
+      name: env
+        type: choice
+        description: env to deploy
+        required: true
+        options:
+          - dev
+          - qa
+          - uat
+          - prod
+  workflow_call:
+    inputs:
+      commit-hash:
 
-# Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
 jobs:
 
   build:
@@ -13,10 +23,3 @@ jobs:
       - name: build
         run: |
           echo "This is where we would build code"
-
-  # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
-  call-local-workflow:
-    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
-    with:
-      env: DEV-TEST
-      tag: TAG-TEST

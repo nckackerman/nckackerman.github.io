@@ -3,7 +3,7 @@ name: "Reusable/Deploy"
 on:
   workflow_dispatch:
     inputs:
-      name:
+      name: env
         type: choice
         description: env to deploy
         required: true
@@ -16,7 +16,7 @@ on:
     inputs:
       env:
         required: true
-        description: env - qa/uat/prod etc
+        description: env - dev/qa/uat/prod
         type: string
       tag:
         required: false

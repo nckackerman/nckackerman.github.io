@@ -1,0 +1,25 @@
+name: "CI"
+on:
+  pull_request:
+
+jobs:
+
+  # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
+  build:
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
+    with:
+      env: DEV-TEST
+      tag: TAG-TEST
+
+  security:
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
+    with:
+      env: DEV-TEST
+      tag: TAG-TEST
+
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: |
+          echo "This is where we would build code"
