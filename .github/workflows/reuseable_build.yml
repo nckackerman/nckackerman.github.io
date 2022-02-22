@@ -2,7 +2,7 @@ name: "Reusable/Build"
 on:
   workflow_dispatch:
     inputs:
-      name: env
+      name:
         type: choice
         description: env to deploy
         required: true
