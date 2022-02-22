@@ -15,9 +15,30 @@ jobs:
     with:
       image: test
 
-  deploy:
+  dev:
     needs: [security, build]
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
     with:
-      env: DEV-TEST
+      env: DEV
+      tag: TAG-TEST
+
+  qa:
+    needs: [security, build]
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
+    with:
+      env: QA
+      tag: TAG-TEST
+
+  uat:
+    needs: [security, build]
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
+    with:
+      env: UAT
+      tag: TAG-TEST
+
+  prod:
+    needs: [security, build]
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
+    with:
+      env: PROD
       tag: TAG-TEST
