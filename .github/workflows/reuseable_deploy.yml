@@ -30,11 +30,3 @@ jobs:
       - name: deploy
         run: |
           echo "passed in env - ${{inputs.env}} \n and passed in tag - ${{inputs.tag}}"
-
-  dummy_post_deploy:
-    runs-on: ubuntu-latest
-    needs: [ dummy_deploy ]
-    steps:
-      - name: post deploy
-        run: |
-          echo "post deploy"
