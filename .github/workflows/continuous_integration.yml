@@ -15,30 +15,42 @@ jobs:
     with:
       image: test
 
-  dev:
-    needs: [security, build]
-    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
+  release-create:
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
     with:
-      env: DEV
-      tag: TAG-TEST
+      image: test
+
+  deploy:
+    runs-on: [ self-hosted, legacy ]
+
+    strategy:
+      matrix:
+        include:
+          - env: [dev, qa, uat, prod]
+
+    steps:
+      - uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
+        with:
+          env: ${{ matrix.env }}
+          tag: DEV
 
   qa:
     needs: [dev]
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
     with:
       env: QA
-      tag: TAG-TEST
+      tag: QA
 
   uat:
     needs: [qa]
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
     with:
       env: UAT
-      tag: TAG-TEST
+      tag: UAT
 
   prod:
-    needs: [uat]
+    needs: [prod]
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
     with:
       env: PROD
-      tag: TAG-TEST
+      tag: PROD
