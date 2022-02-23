@@ -24,7 +24,7 @@ on:
         type: string
 
 jobs:
-  dummy_deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: deploy

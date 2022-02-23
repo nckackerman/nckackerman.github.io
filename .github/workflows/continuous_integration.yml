@@ -20,19 +20,12 @@ jobs:
     with:
       image: test
 
-  deploy:
-    runs-on: [ self-hosted, legacy ]
-
-    strategy:
-      matrix:
-        include:
-          - env: [dev, qa, uat, prod]
-
-    steps:
-      - uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
-        with:
-          env: ${{ matrix.env }}
-          tag: DEV
+  dev:
+    needs: [dev]
+    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
+    with:
+      env: DEV
+      tag: DEV
 
   qa:
     needs: [dev]
