@@ -22,7 +22,7 @@ jobs:
   # todo: create a release and push to artifactory
   release-create:
     needs: [code, security]
-    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
+    uses: nckackerman/nckackerman.github.io/.github/workflows/release_create.yml@master
     with:
       image: test
 
