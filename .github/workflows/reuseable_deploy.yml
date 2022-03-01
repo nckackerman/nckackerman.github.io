@@ -4,14 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        type: choice
+        type: environment
         description: env to deploy
         required: true
-        options:
-          - dev
-          - qa
-          - uat
-          - prod
   workflow_call:
     inputs:
       env:

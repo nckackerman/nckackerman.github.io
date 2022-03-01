@@ -5,7 +5,7 @@ on:
 
 # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
 jobs:
-  build:
+  code:
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_build.yml@master
     with:
       commit-hash: hash
@@ -16,10 +16,22 @@ jobs:
       image: test
 
   release-create:
-    needs: [build, security]
+    needs: [code, security]
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
     with:
       image: test
+
+  dispatch:
+    needs: code
+    strategy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          repository: nckackerman/nckackerman.github.io
+          event-type: test-event
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
 
   dev:
     needs: [release-create]
