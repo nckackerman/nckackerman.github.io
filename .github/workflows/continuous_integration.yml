@@ -23,7 +23,6 @@ jobs:
 
   dispatch:
     needs: code
-    strategy:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
