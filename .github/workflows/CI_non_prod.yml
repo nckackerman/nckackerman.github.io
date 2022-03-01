@@ -23,8 +23,6 @@ jobs:
   release-create:
     needs: [code, security]
     uses: nckackerman/nckackerman.github.io/.github/workflows/release_create.yml@master
-    with:
-      image: test
 
   # deploy to dev + qa
   dev:
