@@ -1,9 +1,0 @@
-name: Repository Dispatch
-on:
-  repository_dispatch:
-    types: [test-event]
-jobs:
-  myEvent:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ github.event.client_payload.sha }}

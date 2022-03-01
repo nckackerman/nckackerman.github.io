@@ -1,4 +1,4 @@
-name: "CI"
+name: "CI - Non Prod"
 on:
   pull_request:
   push:
@@ -6,33 +6,27 @@ on:
 # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
 jobs:
   code:
+    # todo: replace with generic build+test command for micronaut. If people need to customize, they can.
+    # But initially. everyone should just have a single line here
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_build.yml@master
     with:
       commit-hash: hash
 
+  # todo: replace with generic security command for micronaut. If people need to customize, they can.
+  # But initially. everyone should just have a single line here
   security:
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
     with:
       image: test
 
+  # todo: create a release and push to artifactory
   release-create:
     needs: [code, security]
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_security.yml@master
     with:
       image: test
 
-  dispatch:
-    needs: code
-    runs-on: ubuntu-latest
-    steps:
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          repository: nckackerman/nckackerman.github.io
-          event-type: test-event
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
-
+  # deploy to dev + qa
   dev:
     needs: [release-create]
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
@@ -47,16 +41,4 @@ jobs:
       env: QA
       tag: QA
 
-  uat:
-    needs: [qa]
-    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
-    with:
-      env: UAT
-      tag: UAT
-
-  prod:
-    needs: [uat]
-    uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
-    with:
-      env: PROD
-      tag: PROD
+  # optionally, trigger the prod workflow by tagging a branch
