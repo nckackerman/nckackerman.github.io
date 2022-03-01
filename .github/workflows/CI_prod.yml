@@ -1,4 +1,4 @@
-Sname: "CI - Prod"
+name: "CI - Prod"
 on:
   pull_request:
   push:

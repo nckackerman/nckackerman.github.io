@@ -1,4 +1,4 @@
-name: Release / Create New
+name: Release
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ on:
     types: [release-create]
 
 jobs:
-  promote:
+  create:
     if: github.event.inputs.previous_release == null
     runs-on: [ ubuntu-latest ]
 
@@ -54,6 +54,14 @@ jobs:
           token: ${{ secrets.BOTNYDIG_TOKEN }}
           tag: ${{ steps.calculate-next-release.outputs.next-release }}
           commit: ${{ github.sha }}
+
+  push:
+    runs-on: ubuntu-latest
+    needs: [create]
+    steps:
+      - name: push
+        run: |
+          echo "This is where we would push releases to artifactory"
 
   promote-with-input:
     if: github.event.inputs.previous_release != null
