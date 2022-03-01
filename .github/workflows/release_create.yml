@@ -15,46 +15,11 @@ on:
 
 jobs:
   create:
-    if: github.event.inputs.previous_release == null
-    runs-on: [ ubuntu-latest ]
-
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
-
-      - uses: actions/checkout@v2.4.0
-        with:
-          repository: NYDIG/.github
-          ref: refs/tags/1.2.27
-          path: .github-shared
-          token: ${{ secrets.BOTNYDIG_TOKEN }}
-
-      - id: current-release
-        name: Get Current Release
-        uses: gregziegan/fetch-latest-release@a36ee8ee464da77ba3e499ed6b75e3530e10f9bc
-        continue-on-error: true
-
-      - id: calculate-next-release
-        uses: ./.github-shared/actions/calculate-next-release
-        with:
-          current-release: ${{ steps.current-release.outputs.tag_name }}
-
-      - name: Build Changelog
-        id: changelog
-        uses: mikepenz/release-changelog-builder-action@af8537315e10ba90e6c91593e88fee13713b0f99
-        with:
-          fromTag: ${{ steps.current-release.outputs.tag_name }}
-          toTag: ${{ github.event.repository.default_branch }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.BOTNYDIG_TOKEN }}
-
-      - name: Create Release
-        uses: ncipollo/release-action@c4bf6c1ab090090498fb7f3ddc9f99ba5ab619b9
-        with:
-          name: ${{ steps.calculate-next-release.outputs.next-release }}
-          body: ${{steps.changelog.outputs.changelog}}
-          token: ${{ secrets.BOTNYDIG_TOKEN }}
-          tag: ${{ steps.calculate-next-release.outputs.next-release }}
-          commit: ${{ github.sha }}
+      - name: push
+        run: |
+          echo "This is where we would create a release"
 
   push:
     runs-on: ubuntu-latest
