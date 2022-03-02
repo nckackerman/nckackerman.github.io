@@ -1,6 +1,7 @@
 name: "CI - Non Prod"
 on:
   pull_request:
+  push:
 
 # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
 jobs:
