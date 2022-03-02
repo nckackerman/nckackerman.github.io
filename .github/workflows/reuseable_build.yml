@@ -26,3 +26,9 @@ jobs:
       - name: build
         run: |
           echo "This is where we would build code"
+      - name: build2
+        run: |
+          echo "This is where we would build2 code"
+      - name: build3
+        run: |
+          echo "This is where we would build3 code"
