@@ -1,0 +1,15 @@
+name: 'Hello World'
+description: 'Greet someone'
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo 1.
+      shell: bash
+    - id: random-number-generator
+      run: echo 2..
+      shell: bash
+    - run: echo 3...
+      shell: bash
+    - run: echo 4....
+      shell: bash

@@ -1,7 +1,6 @@
 name: "CI - Non Prod"
 on:
   pull_request:
-  push:
 
 # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
 jobs:
@@ -11,6 +10,33 @@ jobs:
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_build.yml@master
     with:
       commit-hash: hash
+
+  codecov:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: |
+          echo "This is where we would run codecov"
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: |
+          echo "This is where we would run lints"
+
+  compatability:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        uses: nckackerman/nckackerman.github.io/.github/actions/test-action
+
+  composite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: |
+          echo "This is where we would run compatability checks"
 
   # todo: replace with generic security command for micronaut. If people need to customize, they can.
   # But initially. everyone should just have a single line here
@@ -39,4 +65,5 @@ jobs:
       env: QA
       tag: QA
 
-  # optionally, trigger the prod workflow by tagging a branch
+  # TODO: kick off uat workflow, possible through a tag or something
+  # trigger-uat:
