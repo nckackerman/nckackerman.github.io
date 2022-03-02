@@ -9,7 +9,7 @@ runs:
     - id: random-number-generator
       run: echo 2..
       shell: bash
-    - run: echo 3...
+    - run: exit 1
       shell: bash
     - run: echo 4....
       shell: bash
