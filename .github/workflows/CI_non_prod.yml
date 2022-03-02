@@ -29,15 +29,15 @@ jobs:
   compatability:
     runs-on: ubuntu-latest
     steps:
-      - name: test
-        uses: ./.github/actions/test-action
-
-  composite:
-    runs-on: ubuntu-latest
-    steps:
       - name: build
         run: |
           echo "This is where we would run compatability checks"
+
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        uses: ./.github/actions/test-action
 
   # todo: replace with generic security command for micronaut. If people need to customize, they can.
   # But initially. everyone should just have a single line here
