@@ -9,6 +9,10 @@ Example of badge that shows latest commit:
 Example of badge that shows latest commit that ran workflow:
 ![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/nckackerman/6f8c0d7179c381b68eea64374e7dbe8a/raw/test.json)
 
+    <script>
+        alert('Hello, World!');
+    </script>
+
 Example of dropdown:
 <details>
 <summary>How do I dropdown?</summary>
