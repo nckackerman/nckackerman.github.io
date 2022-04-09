@@ -22,7 +22,7 @@ jobs:
           gistID: 6f8c0d7179c381b68eea64374e7dbe8a
           filename: test.json
           label: Hello
-          message: sha = ${{ env.GITHUB_SHA }}
+          message: sha = ${{ GITHUB_SHA }}
           color: orange
 
   codecov:
