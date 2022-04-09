@@ -12,6 +12,19 @@ jobs:
     with:
       commit-hash: hash
 
+  make-badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Awesome Badge
+        uses: schneegans/dynamic-badges-action@v1.2.0
+        with:
+          auth: ${{ secrets.REPO_ACCESS_TOKEN }}
+          gistID: 6f8c0d7179c381b68eea64374e7dbe8a
+          filename: test.json
+          label: Hello
+          message: World | git-hash
+          color: orange
+
   codecov:
     runs-on: ubuntu-latest
     steps:
