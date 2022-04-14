@@ -36,23 +36,13 @@ jobs:
           name: "new-json-file.json"
           json: '{"name":"hello", "password":"world"}'
 
-      - name: Upload package
-        uses: actions/upload-artifact@v2
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
         with:
-          name: package
-          path: "new-json-file.json"
-
-      - id: set_var
-        run: |
-          content=`hello world`
-          # the following lines are only required for multi line json
-          content="${content//'%'/'%25'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
-          # end of optional handling for multi line json
-          echo "::set-output name=packageJson::$content"
-      - run: |
-          echo "${{fromJson(steps.set_var.outputs.packageJson).version}}"
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: new-json-file.json
+          asset_name: test-json-file
+          tag: 1.0.1
 
   codecov:
     runs-on: ubuntu-latest
