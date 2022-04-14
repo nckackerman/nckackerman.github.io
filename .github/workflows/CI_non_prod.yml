@@ -29,7 +29,18 @@ jobs:
           message: 3 | ${{ env.GITHUB_SHA }}
           color: orange
 
-      #message: sha = ${{ env.GITHUB_SHA }}
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: "new-json-file.json"
+          json: '{"name":"hello", "password":"world"}'
+
+      - name: Upload package
+        uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: "new-json-file.json"
 
   codecov:
     runs-on: ubuntu-latest
