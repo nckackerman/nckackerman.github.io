@@ -27,7 +27,7 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           target_url: http://my-app-url.com
           description: hello-world-nackerman
-          environment: production
+          environment: v13
 
       - name: Update deployment status (success)
         uses: chrnorm/deployment-status@releases/v1
