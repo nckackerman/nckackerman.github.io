@@ -14,6 +14,9 @@ jobs:
 
   make-badge:
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1
     steps:
       - name: Set environment variables
         run: |
@@ -34,7 +37,7 @@ jobs:
         uses: jsdaniell/create-json@1.1.2
         with:
           name: "new-json-file.json"
-          json: '{"name":"hello", "password":"world"}'
+          json: '{"name":"hello", "password":"world22"}'
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
@@ -43,6 +46,7 @@ jobs:
           file: new-json-file.json
           asset_name: test-json-file
           tag: 1.0.1
+          overwrite: true
 
   codecov:
     runs-on: ubuntu-latest
