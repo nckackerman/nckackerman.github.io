@@ -9,7 +9,7 @@
       (async () => {
         const response = await fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/contents/swagger/');
 
-        const response2 = await fetch('https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/test-json-file');
+        const response2 = await fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/62953276');
         console.log(response2);
         const data = await response.json();
         let htmlString = '<ul>';

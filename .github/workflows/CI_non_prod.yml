@@ -48,6 +48,17 @@ jobs:
           tag: 1.0.1
           overwrite: true
 
+      - name: Update deployment status
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target_url: http://my-app-url.com
+          state: "pending"
+          description: "how much text can i put in here? I wonder. I hope its a lot. How many characters is too may? I guess we'll see"
+          log_url: "log_url"
+          environment_url: "environment_url"
+          deployment_id: 550011712
+
   codecov:
     runs-on: ubuntu-latest
     steps:
