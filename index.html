@@ -9,7 +9,12 @@
       (async () => {
         const response = await fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/contents/swagger/');
 
-        const response2 = await fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/62953276');
+        const response2 = await fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/62953276', {
+          headers: {
+            'Content-Type': 'application/octet-stream'
+          },
+        });
+
         console.log(response2);
         const data = await response.json();
         let htmlString = '<ul>';
