@@ -37,41 +37,41 @@ jobs:
           state: "success"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
-  make-badge:
-    runs-on: ubuntu-latest
-    environment:
-      name: v1.0.1
-      url: https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1
-    steps:
-      - name: Set environment variables
-        run: |
-          echo "GITHUB_SHA=$GITHUB_SHA" >> $GITHUB_ENV
-
-      - name: Create Awesome Badge
-        uses: schneegans/dynamic-badges-action@v1.2.0
-        with:
-          auth: ${{ secrets.REPO_ACCESS_TOKEN }}
-          gistID: 6f8c0d7179c381b68eea64374e7dbe8a
-          filename: test.json
-          label: Hello
-          message: 3 | ${{ env.GITHUB_SHA }}
-          color: orange
-
-      - name: create-json
-        id: create-json
-        uses: jsdaniell/create-json@1.1.2
-        with:
-          name: "new-json-file.json"
-          json: '{"name":"hello", "password":"world22"}'
-
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: new-json-file.json
-          asset_name: test-json-file
-          tag: 1.0.1
-          overwrite: true
+#  make-badge:
+#    runs-on: ubuntu-latest
+#    environment:
+#      name: v1.0.1
+#      url: https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1
+#    steps:
+#      - name: Set environment variables
+#        run: |
+#          echo "GITHUB_SHA=$GITHUB_SHA" >> $GITHUB_ENV
+#
+#      - name: Create Awesome Badge
+#        uses: schneegans/dynamic-badges-action@v1.2.0
+#        with:
+#          auth: ${{ secrets.REPO_ACCESS_TOKEN }}
+#          gistID: 6f8c0d7179c381b68eea64374e7dbe8a
+#          filename: test.json
+#          label: Hello
+#          message: 3 | ${{ env.GITHUB_SHA }}
+#          color: orange
+#
+#      - name: create-json
+#        id: create-json
+#        uses: jsdaniell/create-json@1.1.2
+#        with:
+#          name: "new-json-file.json"
+#          json: '{"name":"hello", "password":"world22"}'
+#
+#      - name: Upload binaries to release
+#        uses: svenstaro/upload-release-action@v2
+#        with:
+#          repo_token: ${{ secrets.GITHUB_TOKEN }}
+#          file: new-json-file.json
+#          asset_name: test-json-file
+#          tag: 1.0.1
+#          overwrite: true
 
   codecov:
     runs-on: ubuntu-latest
