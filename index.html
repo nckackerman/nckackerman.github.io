@@ -5,19 +5,14 @@
       <a href="./">Swagger Docs</a>
     </h1>
 
-    <script type="module">
-      import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
-    </script>
 
     <script>
+      import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+      
       (async () => {
         const response = await fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/contents/swagger/');
 
-        Octokit.request('GET /repos/nckackerman/nckackerman.github.io/releases/assets/63057064', {
-          owner: 'OWNER',
-          repo: 'REPO',
-          asset_id: 'ASSET_ID'
-        })
+        Octokit.request('GET /repos/nckackerman/nckackerman.github.io/releases/assets/63057064');
 
         fetch('https://reqbin.com/echo/get/json', {
           headers: {
