@@ -38,12 +38,10 @@
           console.log(json);
         });
 
-        fetch('https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/test-json-file.json', {
+        fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/63057064', {
           headers: {
             Accept: 'application/octet-stream',
-            Origin: 'https://github.com',
-            redirect: 'follow',
-            mode: 'no-cors'
+            Authorization: 'token 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'
           },
         }).then(response => {
           if (!response.ok) {
