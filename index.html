@@ -9,10 +9,9 @@
       (async () => {
         const response = await fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/contents/swagger/');
 
-        fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/63057064', {
+        fetch('https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/test-json-file', {
           headers: {
-            Accept: 'application/octet-stream',
-            mode: 'no-cors'
+            Accept: 'application/octet-stream'
           },
         }).then(response => {
           if (!response.ok) {
