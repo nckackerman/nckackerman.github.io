@@ -24,7 +24,8 @@
 
         fetch('https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/test-json-file', {
           headers: {
-            Accept: 'application/octet-stream'
+            Accept: 'application/octet-stream',
+            Origin: 'https://github.com'
           },
         }).then(response => {
           if (!response.ok) {
