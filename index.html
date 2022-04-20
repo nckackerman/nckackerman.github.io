@@ -28,7 +28,8 @@
         fetch('https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/test-json-file.json', {
           headers: {
             Accept: 'application/json',
-            Origin: 'https://github.com'
+            Origin: 'https://github.com',
+            mode: 'no-cors'
           },
         }).then(response => {
           if (!response.ok) {
