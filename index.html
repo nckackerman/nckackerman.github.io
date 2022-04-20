@@ -11,7 +11,7 @@
 
         fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/63057064', {
           headers: {
-            'Content-Type': 'application/octet-stream'
+            'Accept': 'application/octet-stream'
           },
         }).then(response => {
           if (!response.ok) {
