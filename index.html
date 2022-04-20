@@ -1,4 +1,7 @@
 <html>
+<head>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+</head>
   <body>
 
     <h1>
@@ -24,7 +27,7 @@
 
         fetch('https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/test-json-file', {
           headers: {
-            Accept: 'application/octet-stream',
+            Accept: 'application/json',
             Origin: 'https://github.com'
           },
         }).then(response => {
@@ -38,7 +41,7 @@
 
         fetch('https://objects.githubusercontent.com/github-production-release-asset-2e65be/398348889/b95f3f80-b2b2-42d9-b0bc-be370ee1acf8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220420%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220420T031454Z&X-Amz-Expires=300&X-Amz-Signature=3ac39c7acd92ef61ac3d1746a6f6679a9f99cb18022036d2c7f0d66fe8bb8b53&X-Amz-SignedHeaders=host&actor_id=5905174&key_id=0&repo_id=398348889&response-content-disposition=attachment%3B%20filename%3Dtest-json-file&response-content-type=application%2Foctet-stream', {
           headers: {
-            Accept: 'application/octet-stream'
+            Accept: 'application/json'
           },
         }).then(response => {
           if (!response.ok) {
