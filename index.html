@@ -11,18 +11,16 @@
       (async () => {
         const response = await fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/contents/swagger/');
 
-        fetch('https://filesamples.com/samples/code/json/sample1.json', {
-          headers: {
-            Accept: 'application/octet-stream'
-          },
-        }).then(response => {
-          if (!response.ok) {
-            throw new Error("HTTP error " + response.status);
+        var rawFile = new XMLHttpRequest();
+        rawFile.overrideMimeType("application/json");
+        rawFile.open("GET", "https://filesamples.com/samples/code/json/sample1.json", true);
+        rawFile.onreadystatechange = function() {
+          if (rawFile.readyState === 4 && rawFile.status == "200") {
+            console.log(rawFile.responseText);
+            console.log(JSON.parse(rawFile.responseText));
           }
-          return response.json();
-        }).then(json => {
-          console.log(json);
-        });
+        }
+        rawFile.send(null);
 
         fetch('https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/test-json-file', {
           headers: {
