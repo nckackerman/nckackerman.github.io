@@ -60,14 +60,14 @@ jobs:
       - name: create-img
         id: create-img
         run: |
-          curl -s "https://raster.shields.io/badge/DEV-v1.0.3-green?link=https://google.com&link=https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1" > build-build.img
+          curl -s "https://raster.shields.io/badge/DEV-v1.0.3-green?link=https://google.com&link=https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1" > build-build.png
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build-build.img
-          asset_name: build-build.img
+          asset_name: build-build.png
           tag: 1.0.1
           overwrite: true
 
