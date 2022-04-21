@@ -26,9 +26,7 @@
         rawFile.send(null);
 
         fetch('https://cors-anywhere.herokuapp.com/https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/test-json-file.json', {
-          headers: {
-            Origin: 'https://github.com',
-          },
+
         }).then(response => {
           if (!response.ok) {
             throw new Error("HTTP error " + response.status);
@@ -41,7 +39,8 @@
         fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/63057064', {
           headers: {
             Accept: 'application/octet-stream',
-            Authorization: 'token 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'
+            Authorization: 'token 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',
+            "User-Agent": "",
           },
         }).then(response => {
           if (!response.ok) {

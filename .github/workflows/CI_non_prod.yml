@@ -57,19 +57,17 @@ jobs:
           message: 3 | ${{ env.GITHUB_SHA }}
           color: orange
 
-      - name: create-json
-        id: create-json
-        uses: jsdaniell/create-json@1.1.2
-        with:
-          name: "new-json-file.json"
-          json: '{"name":"hello", "password":"world22"}'
+      - name: create-img
+        id: create-img
+        run: |
+          curl -s "https://raster.shields.io/badge/DEV-v1.0.3-green?link=https://google.com&link=https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1" > build-build.img
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: new-json-file.json
-          asset_name: test-json-file.json
+          file: build-build.img
+          asset_name: build-build.img
           tag: 1.0.1
           overwrite: true
 
