@@ -60,7 +60,7 @@ jobs:
       - name: create-img
         id: create-img
         run: |
-          curl -s "https://raster.shields.io/badge/DEV-${GITHUB_SHA::6}-green?link=https://google.com&link=https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1" > build-build.png
+          curl -s "https://raster.shields.io/badge/DEV-${GITHUB_SHA::6}-yellow?link=https://google.com&link=https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1" > build-build.png
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
