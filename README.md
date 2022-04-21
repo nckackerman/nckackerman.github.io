@@ -4,4 +4,11 @@
 ![badge](https://img.shields.io/badge/PROD-v1.0.0-green)
 
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="78" height="20"><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="78" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="33" height="20" fill="#555"/><rect x="33" width="45" height="20" fill="#97ca00"/><rect width="78" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><a target="_blank" xlink:href="https://google.com"><rect width="33" x="0" height="20" fill="rgba(0,0,0,0)"/><text aria-hidden="true" x="175" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="230">DEV</text><text x="175" y="140" transform="scale(.1)" fill="#fff" textLength="230">DEV</text></a><a target="_blank" xlink:href="https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1"><rect width="45" x="33" height="20" fill="rgba(0,0,0,0)"/><text aria-hidden="true" x="545" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="350">v1.0.3</text><text x="545" y="140" transform="scale(.1)" fill="#fff" textLength="350">v1.0.3</text></a></g></svg>
+![badge](https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/poc.svg)
+
+![badge](https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/63261480)
+
+<img alt="my image" src="https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/63261480">
+
+<img alt="my image" src="https://github.com/nckackerman/nckackerman.github.io/releases/download/1.0.1/poc.svg">
+
