@@ -38,10 +38,19 @@
 
         fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/63057064', {
           headers: {
-            Accept: 'application/octet-stream',
-            Authorization: 'token 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',
-            "User-Agent": "",
+            Accept: 'application/octet-stream'
           },
+        }).then(response => {
+          if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+          }
+          return response.json();
+        }).then(json => {
+          console.log(json);
+        });
+
+        fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/63057064', {
+          
         }).then(response => {
           if (!response.ok) {
             throw new Error("HTTP error " + response.status);
