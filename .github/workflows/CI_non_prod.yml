@@ -28,6 +28,7 @@ jobs:
           target_url: http://my-app-url.com
           description: hello-world-nackerman
           environment: apple
+          ref: apple
 
       - name: Update deployment status (success)
         uses: chrnorm/deployment-status@releases/v1
