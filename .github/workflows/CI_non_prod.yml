@@ -120,11 +120,9 @@ jobs:
       url: https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1
     needs: [dev]
     steps:
-      - uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ github.TOKEN }}
-          approvers: nckackerman
-          minimum-approvals: 1
+      - name: no-op
+        run: |
+          echo "hello no-op"
 
   qa:
     needs: [validate-deploy-dev]
