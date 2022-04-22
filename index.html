@@ -59,7 +59,11 @@
         });
 
         fetch('https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/assets/63057064', {
-
+            headers: {
+              Accept: 'application/octet-stream',
+              'User-Agent': 'request module'
+            },
+            encoding: null,
         }).then(response => {
           if (!response.ok) {
             throw new Error("HTTP error " + response.status);
