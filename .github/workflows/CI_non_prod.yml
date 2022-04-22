@@ -12,31 +12,31 @@ jobs:
     with:
       commit-hash: hash
 
-  deploy:
-    name: Deploy my app
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-
-      - uses: chrnorm/deployment-action@releases/v1
-        name: Create GitHub deployment
-        id: deployment
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          target_url: http://my-app-url.com
-          description: hello-world-nackerman
-          environment: apple
-          ref: apple
-
-      - name: Update deployment status (success)
-        uses: chrnorm/deployment-status@releases/v1
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          target_url: http://my-app-url.com
-          state: "success"
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+#  deploy:
+#    name: Deploy my app
+#
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v1
+#
+#      - uses: chrnorm/deployment-action@releases/v1
+#        name: Create GitHub deployment
+#        id: deployment
+#        with:
+#          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+#          target_url: http://my-app-url.com
+#          description: hello-world-nackerman
+#          environment: apple
+#          ref: apple
+#
+#      - name: Update deployment status (success)
+#        uses: chrnorm/deployment-status@releases/v1
+#        with:
+#          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+#          target_url: http://my-app-url.com
+#          state: "success"
+#          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
 #  make-badge:
 #    runs-on: ubuntu-latest
@@ -117,6 +117,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: qa
+      url: https://github.com/nckackerman/nckackerman.github.io/releases/tag/1.0.1
     needs: [dev]
     steps:
       - uses: trstringer/manual-approval@v1
