@@ -115,6 +115,8 @@ jobs:
 
   validate-deploy-dev:
     runs-on: ubuntu-latest
+    environment:
+      name: qa
     needs: [dev]
     steps:
       - uses: trstringer/manual-approval@v1
@@ -124,7 +126,6 @@ jobs:
           minimum-approvals: 1
 
   qa:
-    environment: qa
     needs: [validate-deploy-dev]
     uses: nckackerman/nckackerman.github.io/.github/workflows/reuseable_deploy.yml@master
     with:
