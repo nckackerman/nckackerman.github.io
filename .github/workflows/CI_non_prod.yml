@@ -38,6 +38,7 @@ jobs:
           state: "success"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
+#No-op to test
 #  make-badge:
 #    runs-on: ubuntu-latest
 #    environment:
