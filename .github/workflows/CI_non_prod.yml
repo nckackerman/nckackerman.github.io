@@ -12,7 +12,6 @@ jobs:
     with:
       commit-hash: hash
 
-# no-op
 #  deploy:
 #    name: Deploy my app
 #
