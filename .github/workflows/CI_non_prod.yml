@@ -21,7 +21,7 @@ jobs:
         uses: cuchi/jinja2-action@v1.2.0
         with:
           template: ./.github/release-body-template.md
-          output_file: ./.github/new-release/release-body-template.md
+          output_file: ./.github/new-release-release-body-template.md
           strict: true
           variables: |
             base-url=https://github.com/nckackerman/nckackerman.github.io/
