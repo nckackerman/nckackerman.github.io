@@ -60,8 +60,8 @@ jobs:
           RELEASE_ID=$(curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r '.id')
           echo ${RELEASE_ID}
           curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r '.body' | sed 's/\[dev-deploy\]\: $PARTITION_COLUMN.*/[dev-deploy]: https\:\/\/youtube.com/' | tee ./.github/updated-body.md
-          UPDATED_RELEASE_BODY="new body from gha"
-          curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/${RELEASE_ID} -d '{"body":"${{ UPDATED_RELEASE_BODY }}"}'
+          UPDATED_RELEASE_BODY='"new body from gha"'
+          curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/${RELEASE_ID} -d '{"body":${UPDATED_RELEASE_BODY}}'
 
 #  deploy:
 #    name: Deploy my app
