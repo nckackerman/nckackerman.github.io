@@ -57,7 +57,6 @@ jobs:
       - name: update links
         id: update-link
         run: |
-          touch ./temp/release-body.md
           RELEASE_ID=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r ".id");
           UPDATED_RELEASE_BODY=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r ".body" | sed "s/\[dev-deploy\]\: $PARTITION_COLUMN.*/[dev-deploy]: https\:\/\/youtube.com/");
           curl -X PATCH -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/$RELEASE_ID -d '{"body":$UPDATED_RELEASE_BODY}'
