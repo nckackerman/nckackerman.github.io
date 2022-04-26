@@ -27,6 +27,9 @@ jobs:
             baseUrl=https://github.com/nckackerman/nckackerman.github.io/
             releaseId=new-release
             filePathForDownload=releases/download/
+            buildHash=${GITHUB_SHA::6}
+            commitMessage=JIRA-1234 adding db for feature x
+            changeLog=clic here for change log
 
       - name: Create Release
         uses: ncipollo/release-action@c4bf6c1ab090090498fb7f3ddc9f99ba5ab619b9
