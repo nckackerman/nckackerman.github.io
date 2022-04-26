@@ -33,7 +33,7 @@ jobs:
         uses: ncipollo/release-action@c4bf6c1ab090090498fb7f3ddc9f99ba5ab619b9
         with:
           name: new-release
-          bodyFile: ./.github/new-release/release-body-template.md
+          bodyFile: ./.github/new-release-release-body-template.md
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           tag: new-release
           commit: ${{ github.sha }}
