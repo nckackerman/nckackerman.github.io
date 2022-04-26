@@ -4,16 +4,16 @@
 | **post-deploy** | [<img src="{{baseUrl}}{{filePath}}{{releaseId}}/dev-post-deploy.png">][dev-post-deploy] | [<img src="{{baseUrl}}{{filePath}}{{releaseId}}/qa-post-deploy.png">][qa-post-deploy] | [<img src="{{baseUrl}}{{filePath}}{{releaseId}}/uat-deploy.png">][uat-post-deploy] | [<img src="{{baseUrl}}{{filePath}}{{releaseId}}/prod-deploy.png">][prod-post-deploy]  |
 | **promote**     |    [<img src="{{baseUrl}}{{filePath}}{{releaseId}}/dev-promote.png">][dev-promote]      |     [<img src="{{baseUrl}}{{filePath}}{{releaseId}}/qa-promte.png">][qa-promote]      |  [<img src="{{baseUrl}}{{filePath}}{{releaseId}}/uat-deploy.png">][uat-promote]    |                                         xxxx                                          |
 
-[build-link]: {{baseUrl}}releases/tag/1.0.1
-[pipeline-link]: {{baseUrl}}releases/tag/1.0.1
-[dev-deploy]: {{baseUrl}}releases/tag/1.0.1
-[dev-post-deploy]: {{baseUrl}}releases/tag/1.0.1
-[dev-promote]: {{baseUrl}}releases/tag/1.0.1
-[qa-deploy]: {{baseUrl}}releases/tag/1.0.1
-[qa-post-deploy]: {{baseUrl}}releases/tag/1.0.1
-[qa-promote]: {{baseUrl}}releases/tag/1.0.1
-[uat-deploy]: {{baseUrl}}releases/tag/1.0.1
-[uat-post-deploy]: {{baseUrl}}releases/tag/1.0.1
-[uat-promote]: {{baseUrl}}releases/tag/1.0.1
-[prod-deploy]: {{baseUrl}}releases/tag/1.0.1
-[prod-post-deploy]: {{baseUrl}}releases/tag/1.0.1
+[build-link]: {{baseUrl}}releases/tag/{{releaseId}}
+[pipeline-link]: {{baseUrl}}releases/tag/{{releaseId}}
+[dev-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
+[dev-post-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
+[dev-promote]: {{baseUrl}}releases/tag/{{releaseId}}
+[qa-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
+[qa-post-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
+[qa-promote]: {{baseUrl}}releases/tag/{{releaseId}}
+[uat-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
+[uat-post-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
+[uat-promote]: {{baseUrl}}releases/tag/{{releaseId}}
+[prod-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
+[prod-post-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
