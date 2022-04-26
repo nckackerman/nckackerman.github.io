@@ -17,28 +17,28 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-#      - name: Setup release-template
-#        uses: cuchi/jinja2-action@v1.2.0
-#        with:
-#          template: ./.github/release-body-template.md
-#          output_file: ./.github/new-release-release-body-template.md
-#          strict: true
-#          variables: |
-#            baseUrl=https://github.com/nckackerman/nckackerman.github.io/
-#            releaseId=new-release
-#            filePathForDownload=releases/download/
-#            buildHash=${GITHUB_SHA::6}
-#            commitMessage=JIRA-1234 adding db for feature x
-#            changeLog=clic here for change log
-#
-#      - name: Create Release
-#        uses: ncipollo/release-action@c4bf6c1ab090090498fb7f3ddc9f99ba5ab619b9
-#        with:
-#          name: new-release
-#          bodyFile: ./.github/new-release-release-body-template.md
-#          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-#          tag: new-release
-#          commit: ${{ github.sha }}
+      - name: Setup release-template
+        uses: cuchi/jinja2-action@v1.2.0
+        with:
+          template: ./.github/release-body-template.md
+          output_file: ./.github/new-release-release-body-template.md
+          strict: true
+          variables: |
+            baseUrl=https://github.com/nckackerman/nckackerman.github.io/
+            releaseId=new-release
+            filePathForDownload=releases/download/
+            buildHash=${GITHUB_SHA::6}
+            commitMessage=JIRA-1234 adding db for feature x
+            changeLog=clic here for change log
+
+      - name: Create Release
+        uses: ncipollo/release-action@c4bf6c1ab090090498fb7f3ddc9f99ba5ab619b9
+        with:
+          name: new-release
+          bodyFile: ./.github/new-release-release-body-template.md
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          tag: new-release
+          commit: ${{ github.sha }}
 
       - name: create-img
         id: create-img
@@ -60,8 +60,8 @@ jobs:
           RELEASE_ID=$(curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r '.id')
           echo ${RELEASE_ID}
           curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r '.body' | sed 's/\[dev-deploy\]\: $PARTITION_COLUMN.*/[dev-deploy]: https\:\/\/youtube.com/' | tee ./.github/updated-body.md
-          echo https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/${RELEASE_ID}
-          curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/${RELEASE_ID} -d '{"tag_name":"new-release","target_commitish":"master","name":"v1.0.0","body":"Description of the release","draft":false,"prerelease":false}'
+          UPDATED_RELEASE_BODY="new body from gha"
+          curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/${RELEASE_ID} -d '{"body":${UPDATED_RELEASE_BODY}}'
 
 #  deploy:
 #    name: Deploy my app
