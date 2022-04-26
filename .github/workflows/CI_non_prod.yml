@@ -57,11 +57,10 @@ jobs:
       - name: update links
         id: update-link
         run: |
-          echo "RELEASE_ID=$(curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r '.id')" >> $GITHUB_ENV
-          echo ${{ env.RELEASE_ID}}
+          RELEASE_ID=$(curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r '.id')
+          echo ${RELEASE_ID}
           curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r '.body' | sed 's/\[dev-deploy\]\: $PARTITION_COLUMN.*/[dev-deploy]: https\:\/\/youtube.com/' | tee ./.github/updated-body.md
-          echo $UPDATED_RELEASE_BODY
-          curl -X PATCH -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/${{ env.RELEASE_ID}} -d "@./.github/updated-body.md"
+          curl -X PATCH -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/${RELEASE_ID} -d "@./.github/updated-body.md"
 
 #  deploy:
 #    name: Deploy my app
