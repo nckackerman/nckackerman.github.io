@@ -52,7 +52,7 @@ jobs:
           overwrite: true
 
       - name: update links
-        id: create-img
+        id: update-link
         run: |
           echo "todo: update release link here"
 
