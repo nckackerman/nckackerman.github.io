@@ -61,7 +61,7 @@ jobs:
           curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r '.body' | sed -i 's/\[dev-deploy\]\: $PARTITION_COLUMN.*/[dev-deploy]: https\:\/\/youtube.com/' | tee ./.github/updated-body.md
           echo $RELEASE_ID
           echo $UPDATED_RELEASE_BODY
-          curl -X PATCH -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/$RELEASE_ID -d "@./github/updated-body.md"
+          curl -X PATCH -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/$RELEASE_ID -d "@./.github/updated-body.md"
 
 #  deploy:
 #    name: Deploy my app
