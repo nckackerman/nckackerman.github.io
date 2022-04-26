@@ -57,7 +57,9 @@ jobs:
       - name: update links
         id: update-link
         run: |
-          echo "todo: update release link here"
+          touch ./temp/release-body.md
+          curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | jq -r ".body" | sed "s/[dev-deploy]: $PARTITION_COLUMN.*/a popular blog site/"
+          
 
 #  deploy:
 #    name: Deploy my app
