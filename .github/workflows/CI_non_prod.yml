@@ -27,7 +27,6 @@ jobs:
             baseUrl=https://github.com/nckackerman/nckackerman.github.io/
             releaseId=new-release
             filePath=releases/download
-          
 
       - name: Create Release
         uses: ncipollo/release-action@c4bf6c1ab090090498fb7f3ddc9f99ba5ab619b9
