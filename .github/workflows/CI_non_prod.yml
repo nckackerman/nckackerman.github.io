@@ -37,6 +37,25 @@ jobs:
           tag: new-release
           commit: ${{ github.sha }}
 
+      - name: create-img
+        id: create-img
+        run: |
+          curl -s "https://raster.shields.io/badge/DEV-${GITHUB_SHA::6}-green" > dev-deploy.png
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dev-deploy.png
+          asset_name: dev-deploy.png
+          tag: new-release
+          overwrite: true
+
+      - name: update links
+        id: create-img
+        run: |
+          echo "todo: update release link here"
+
 #  deploy:
 #    name: Deploy my app
 #
