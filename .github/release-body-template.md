@@ -1,8 +1,3 @@
-Release-id = [release-id]
-Base-url = [release-id]
-[E2E Deploy pipeline][pipeline-link]
-[Build][[build-link]]
-
 [<img src="{{base-url}}{{file-path}}{{release-id}}/dev-deploy.png">][dev-deploy]
 [<img src="{{base-url}}{{file-path}}{{release-id}}/dev-post-deploy.png">][dev-post-deploy]
 [<img src="{{base-url}}{{file-path}}{{release-id}}/dev-promote.png">][dev-promote]
