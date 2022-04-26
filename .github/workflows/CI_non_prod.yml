@@ -24,9 +24,9 @@ jobs:
           output_file: ./.github/new-release-release-body-template.md
           strict: true
           variables: |
-            base-url=https://github.com/nckackerman/nckackerman.github.io/
-            release-id=new-release
-            file-path=releases/download
+            baseUrl=https://github.com/nckackerman/nckackerman.github.io/
+            releaseId=new-release
+            filePath=releases/download
           
 
       - name: Create Release
