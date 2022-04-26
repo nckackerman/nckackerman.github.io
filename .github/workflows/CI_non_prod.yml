@@ -17,13 +17,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Setup release-template
+        uses: cuchi/jinja2-action@v1.2.0
+        with:
+          template: ./.github/release-body-template.md
+          output_file: ./.github/new-release/release-body-template.md
+          strict: true
+          variables: |
+            base-url=https://github.com/nckackerman/nckackerman.github.io/
+            release-id=new-release
+            file-path=releases/download
+          
+
       - name: Create Release
         uses: ncipollo/release-action@c4bf6c1ab090090498fb7f3ddc9f99ba5ab619b9
         with:
-          name: test-release
-          bodyFile: ./.github/release-body-template.md
+          name: new-release
+          bodyFile: ./.github/new-release/release-body-template.md
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          tag: test-release
+          tag: new-release
           commit: ${{ github.sha }}
 
 #  deploy:
