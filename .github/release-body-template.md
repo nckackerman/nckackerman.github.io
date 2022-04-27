@@ -1,3 +1,5 @@
+<details><summary>WIP release visualization</summary>
+
 |                 |                                           DEV                                           |                                          QA                                           |                                        UAT                                         |                                              PROD                                               |
 |:----------------|:---------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------:|
 | **deploy**      |      [<img src="{{baseUrl}}{{filePathForDownload}}{{releaseId}}/dev-deploy.png">][dev-deploy]      |      [<img src="{{baseUrl}}{{filePathForDownload}}{{releaseId}}/qa-deploy.png">][qa-deploy]      |   [<img src="{{baseUrl}}{{filePathForDownload}}{{releaseId}}/uat-deploy.png">][uat-deploy]    |   [<img src="{{baseUrl}}{{filePathForDownload}}{{releaseId}}/prod-deploy.png">][prod-deploy]    |
@@ -24,3 +26,5 @@
 [uat-promote]: {{baseUrl}}releases/tag/{{releaseId}}
 [prod-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
 [prod-post-deploy]: {{baseUrl}}releases/tag/{{releaseId}}
+
+</details>

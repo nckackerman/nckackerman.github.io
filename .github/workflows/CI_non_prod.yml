@@ -20,7 +20,7 @@ jobs:
       - name: Setup release-template
         uses: cuchi/jinja2-action@v1.2.0
         with:
-          template: ./.github/release-body-template.md
+          template: https://github.com/nckackerman/nckackerman.github.io/blob/master/.github/release-body-template.md
           output_file: ./.github/new-release-release-body-template.md
           strict: true
           variables: |
@@ -63,11 +63,6 @@ jobs:
                https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/tags/new-release | \
                jq -r '.body' | sed "s/\[dev-deploy\]\: $PARTITION_COLUMN.*/[dev-deploy]: https\:\/\/youtube.com/" | \
                tee ./.github/updated-body.md
-#          UPDATED_RELEASE_BODY="-d '{\"body\":\" just a temp field v4\" }'"
-#          curl -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-#               -H "Accept: application/vnd.github.v3+json" \
-#                https://api.github.com/repos/nckackerman/nckackerman.github.io/releases/${RELEASE_ID} \
-#                ${UPDATED_RELEASE_BODY}
 
       - name: Update Release
         uses: ncipollo/release-action@c4bf6c1ab090090498fb7f3ddc9f99ba5ab619b9
