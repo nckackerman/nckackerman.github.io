@@ -1,0 +1,30 @@
+name: dummy
+on:
+  pull_request:
+    branches:
+      - nackerman/**
+  push:
+    branches:
+      - nackerman/**
+  workflow_dispatch:
+    inputs:
+      image-tag:
+        description: 'image tag that was just deployed'
+        required: true
+        type: string
+      environment:
+        description: 'environment that was just deployed'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+
+      - name: view params
+        run: |
+          echo "hello world"
+          echo "environment: ${{ github.event.inputs.environment }}"
+          echo "image-tag: ${{ github.event.inputs.image-tag }}"
