@@ -3,7 +3,6 @@ on:
   pull_request:
   push:
 
-#no-op
 # Silly `uses` syntax to work around this issue -> https://github.com/github/feedback/discussions/10679
 jobs:
   code:
